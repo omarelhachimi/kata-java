@@ -1,5 +1,4 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-foo-bar-quix-form',
@@ -7,15 +6,27 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class FooBarQuixFormComponent implements OnInit {
 
+  chosenNumber : number ;
+  @Output() submitNumberOutput: EventEmitter<any> = new EventEmitter();
 
   constructor() {
-
   }
 
   ngOnInit(): void {
   }
 
   submitNumber(): void {
+    if( Math.abs(this.chosenNumber) > 2147483647 ) {
+      alert("The absolute value of the number should be less than 2147483647");
+      return
+    }
+
+    if( this.chosenNumber == null ) {
+      alert(" You should set a value ");
+      return
+    }
+
+    this.submitNumberOutput.emit(this.chosenNumber);
   }
 
 }
