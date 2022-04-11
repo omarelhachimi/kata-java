@@ -21,6 +21,7 @@ public class FooBarQuixServiceImplTest {
     /// The tests can be done also in a more general way
     ///
     /// For simplicity and time reasons i decided to keep the code this way and mention this here
+    /// This code was coded in TDD, red test -> green test -> refactor
     ///
     //////////////////////////////////////////////////////////////////////////////////////////
 
